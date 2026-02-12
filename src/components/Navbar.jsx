@@ -25,6 +25,13 @@ export default function Navbar({ isSticky }) {
     else setTimeout(() => setRenderMenu(false), 300);
   }, [menuOpen]);
 
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (menuOpen) document.body.classList.add("overflow-hidden");
+    else document.body.classList.remove("overflow-hidden");
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [menuOpen]);
+
   // Scroll function
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
@@ -97,17 +104,17 @@ export default function Navbar({ isSticky }) {
       {/* Mobile Menu */}
       {renderMenu && (
         <div
-          className={`lg:hidden border-t overflow-hidden transition-all duration-300 ${
-            menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          className={`lg:hidden fixed inset-x-0 top-[75px] z-40 transform transition-transform duration-300 ${
+            menuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
           }`}
         >
-          <div className="mx-auto max-w-7xl px-6 py-4">
+          <div className="mx-auto max-w-7xl border-t bg-white shadow-lg max-h-[calc(100vh-75px)] overflow-auto px-6 py-4">
             <div className="flex flex-col gap-3">
               {NAV_ITEMS.map((item) => (
                 <button
                   key={item.label}
                   onClick={(e) => handleNavClick(e, item)}
-                  className="py-1 text-sm font-medium uppercase tracking-wide text-gray-800 hover:text-green-500 text-left"
+                  className="py-1 text-sm font-medium uppercase tracking-wide text-gray-800 hover:text-orange-500 text-left"
                 >
                   {item.label}
                 </button>
