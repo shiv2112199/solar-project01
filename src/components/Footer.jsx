@@ -51,7 +51,7 @@ export default function Footer() {
                 <div
                   key={i}
                   className="flex items-center justify-center text-white/90 border border-white text-xl
-                             w-10 h-10 rounded-full hover:text-green-400 hover:bg-white cursor-pointer"
+                             w-10 h-10 rounded-full hover:text-orange-400 hover:bg-white cursor-pointer"
                 >
                   <Icon />
                 </div>
@@ -82,7 +82,7 @@ export default function Footer() {
           <p>© Your Site Name, All Right Reserved.</p>
           <p>
           
-            <a className="text-white hover:text-green-400" href="https://htmlcodex.com">
+            <a className="text-white hover:text-orange-400" href="https://htmlcodex.com">
               
             </a>
           </p>

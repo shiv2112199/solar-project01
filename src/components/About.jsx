@@ -31,7 +31,7 @@ export default function About() {
           {/* LEFT: IMAGE SECTION WITH DECORATION */}
           <div className="relative group">
             {/* Decorative Back-Box */}
-            <div className="absolute -bottom-6 -right-6 h-full w-full rounded-2xl bg-green-100 transition-transform group-hover:translate-x-2 group-hover:translate-y-2 lg:block hidden"></div>
+            <div className="absolute -bottom-6 -right-6 h-full w-full rounded-2xl bg-orange-100 transition-transform group-hover:translate-x-2 group-hover:translate-y-2 lg:block hidden"></div>
             
             <div className="relative overflow-hidden rounded-2xl shadow-2xl">
               <img
@@ -40,7 +40,7 @@ export default function About() {
                 className="h-[500px] w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Floating Badge */}
-              <div className="absolute bottom-8 left-8 bg-white/90 backdrop-blur px-6 py-4 rounded-xl shadow-lg border-l-4 border-green-500">
+              <div className="absolute bottom-8 left-8 bg-white/90 backdrop-blur px-6 py-4 rounded-xl shadow-lg border-l-4 border-orange-500">
                 <p className="text-3xl font-black text-slate-900">10+</p>
                 <p className="text-sm font-medium text-slate-500">Years of Excellence</p>
               </div>
@@ -49,13 +49,13 @@ export default function About() {
 
           {/* RIGHT: CONTENT SECTION */}
           <div className="flex flex-col justify-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-green-50 px-4 py-1.5 text-sm font-bold uppercase tracking-wider text-green-600">
-              <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-orange-50 px-4 py-1.5 text-sm font-bold uppercase tracking-wider text-orange-600">
+              <span className="h-2 w-2 rounded-full bg-orange-500 animate-pulse"></span>
               About Our Mission
             </div>
 
             <h2 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:leading-tight">
-              Powering Your Life with <span className="text-green-600">Clean Energy</span>
+              Powering Your Life with <span className="text-orange-600">Clean Energy</span>
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-slate-600">
@@ -81,7 +81,7 @@ export default function About() {
             <div className="mt-12 flex flex-wrap items-center gap-6">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-8 py-4 text-base font-bold text-white shadow-xl transition-all hover:bg-green-600 hover:shadow-green-200"
+                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-8 py-4 text-base font-bold text-white shadow-xl transition-all hover:bg-orange-600 hover:shadow-orange-200"
               >
                 Explore More <ArrowRight size={18} />
               </a>

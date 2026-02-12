@@ -104,15 +104,15 @@ export default function Contact() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 gap-8">
 
         {/* LEFT – FORM */}
-        <div className="px-6 py-12">
-          <p className="font-bold text-green-400">Contact Us</p>
+        <div className="px-6 py-3">
+          <p className="font-bold text-orange-400">Contact Us</p>
           <h2 className="mt-2 text-3xl font-extrabold text-dark">
             Feel Free To Contact Us
           </h2>
 
           <form
             onSubmit={handleSubmit}
-            className="mt-8 border-2 border-green-200 p-5 rounded-2xl grid gap-4 md:grid-cols-2"
+            className="mt-8 border-2 border-orange-200 p-5 rounded-2xl grid gap-4 md:grid-cols-2"
           >
 
             {/* NAME */}
@@ -121,7 +121,7 @@ export default function Contact() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="h-[55px] w-full rounded-md px-4 bg-gray-200 focus:ring-2 outline-none focus:ring-green-400"
+                className="h-[55px] w-full rounded-md px-4 bg-gray-200 focus:ring-2 outline-none focus:ring-orange-400"
                 placeholder="Your Name"
               />
               {errors.name && (
@@ -135,7 +135,7 @@ export default function Contact() {
                 name="contact_number"
                 value={formData.contact_number}
                 onChange={handleChange}
-                className="h-[55px] w-full rounded-md px-4 bg-gray-200 focus:ring-2 outline-none focus:ring-green-400"
+                className="h-[55px] w-full rounded-md px-4 bg-gray-200 focus:ring-2 outline-none focus:ring-orange-400"
                 placeholder="Phone Number"
               />
               {errors.contact_number && (
@@ -151,7 +151,7 @@ export default function Contact() {
                 name="city"
                 value={formData.city}
                 onChange={handleChange}
-                className="h-[55px] w-full rounded-md px-4 bg-gray-200 focus:ring-2 outline-none focus:ring-green-400"
+                className="h-[55px] w-full rounded-md px-4 bg-gray-200 focus:ring-2 outline-none focus:ring-orange-400"
                 placeholder="City / Area"
               />
               {errors.city && (
@@ -166,7 +166,7 @@ export default function Contact() {
                 name="monthly_electricity_bill"
                 value={formData.monthly_electricity_bill}
                 onChange={handleChange}
-                className="h-[55px] w-full rounded-md px-4 bg-gray-200 focus:ring-2 outline-none focus:ring-green-400"
+                className="h-[55px] w-full rounded-md px-4 bg-gray-200 focus:ring-2 outline-none focus:ring-orange-400"
                 placeholder="Monthly Electricity Bill (Optional)"
               />
               {errors.monthly_electricity_bill && (
@@ -182,7 +182,7 @@ export default function Contact() {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                className="min-h-[120px] w-full rounded-md px-4 py-3 bg-gray-200 focus:ring-2 outline-none focus:ring-green-400"
+                className="min-h-[120px] w-full rounded-md px-4 py-3 bg-gray-200 focus:ring-2 outline-none focus:ring-orange-400"
                 placeholder="Message"
               />
               {errors.message && (
@@ -192,7 +192,7 @@ export default function Contact() {
 
             <button
               disabled={loading}
-              className="rounded-full bg-green-500 px-8 py-3 text-white md:col-span-2 w-fit disabled:opacity-50"
+              className="rounded-full bg-orange-500 px-8 py-3 text-white md:col-span-2 w-fit disabled:opacity-50"
             >
               {loading ? "Sending..." : "Send Message"}
             </button>

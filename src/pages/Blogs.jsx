@@ -54,11 +54,11 @@ const Blogs = () => {
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
-          <span className="inline-block px-4 py-1 mb-4 text-xs font-bold tracking-widest text-green-400 uppercase bg-green-400/10 backdrop-blur-md rounded-full">
+          <span className="inline-block px-4 py-1 mb-4 text-xs font-bold tracking-widest text-orange-400 uppercase bg-orange-400/10 backdrop-blur-md rounded-full">
             Our Knowledge Hub
           </span>
           <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
-            Insights for a <span className="text-green-400">Greener</span> Tomorrow
+            Insights for a <span className="text-orange-400">orangeer</span> Tomorrow
           </h1>
           <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-light leading-relaxed">
             Everything you need to know about solar installation, cost savings, and sustainable living.
@@ -73,7 +73,7 @@ const Blogs = () => {
             <h2 className="text-3xl font-bold text-gray-900">Featured Articles</h2>
             <p className="text-gray-500 mt-1">Handpicked stories from our experts</p>
           </div>
-          <div className="h-1 w-20 bg-green-500 rounded-full md:hidden"></div>
+          <div className="h-1 w-20 bg-orange-500 rounded-full md:hidden"></div>
         </div>
 
         {/* Blog Grid */}
@@ -92,7 +92,7 @@ const Blogs = () => {
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-white/90 backdrop-blur-sm text-green-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
+                    <span className="bg-white/90 backdrop-blur-sm text-orange-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
                       Solar Tech
                     </span>
                   </div>
@@ -100,7 +100,7 @@ const Blogs = () => {
 
                 {/* Content */}
                 <div className="p-7 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors line-clamp-2 leading-snug">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors line-clamp-2 leading-snug">
                     {blog.title}
                   </h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-3">
@@ -110,7 +110,7 @@ const Blogs = () => {
                   <div className="mt-auto pt-5 border-t border-gray-100 flex items-center justify-between">
                     <Link
                       to={`/blogs/${blog.slug}`}
-                      className="inline-flex items-center text-sm font-bold text-gray-900 hover:text-green-600 transition-colors group/link"
+                      className="inline-flex items-center text-sm font-bold text-gray-900 hover:text-orange-600 transition-colors group/link"
                     >
                       Read Full Article 
                       <svg className="w-4 h-4 ml-2 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

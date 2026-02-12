@@ -31,10 +31,10 @@ const WhyChooseUs = () => {
                 
                 {/* Header */}
                 <div className="mx-auto mb-20 max-w-2xl text-center">
-                    <span className="text-sm font-black uppercase tracking-[0.2em] text-green-500">Why Choose Us</span>
+                    <span className="text-sm font-black uppercase tracking-[0.2em] text-orange-500">Why Choose Us</span>
                     <h2 className="mt-4 text-4xl font-black text-slate-900 md:text-5xl leading-tight">
                         Expert Solar Solutions <br /> 
-                        <span className="text-green-600 font-medium italic">In Indore.</span>
+                        <span className="text-orange-600 font-medium italic">In Indore.</span>
                     </h2>
                 </div>
 
@@ -43,11 +43,11 @@ const WhyChooseUs = () => {
                     {whyChooseUs.map((item, idx) => (
                         <div
                             key={idx}
-                            className="group relative rounded-3xl bg-white p-8 pt-12 text-center transition-all duration-500 border border-slate-100 hover:border-green-500 hover:shadow-2xl hover:shadow-green-100"
+                            className="group relative rounded-3xl bg-white p-8 pt-12 text-center transition-all duration-500 border border-slate-100 hover:border-orange-500 hover:shadow-2xl hover:shadow-orange-100"
                         >
                             {/* FLOATING ICON BOX */}
                             <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 transition-transform duration-500 group-hover:-translate-y-2/3">
-                                <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-xl border border-slate-50 transition-all duration-500 group-hover:bg-green-600 group-hover:text-white group-hover:shadow-green-200">
+                                <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-xl border border-slate-50 transition-all duration-500 group-hover:bg-orange-600 group-hover:text-white group-hover:shadow-orange-200">
                                     <span className="transition-transform duration-500 group-hover:scale-110">
                                         {item.icon}
                                     </span>
@@ -56,7 +56,7 @@ const WhyChooseUs = () => {
 
                             {/* CONTENT */}
                             <div className="space-y-4">
-                                <h3 className="text-xl font-extrabold text-slate-900 transition-colors duration-300 group-hover:text-green-600">
+                                <h3 className="text-xl font-extrabold text-slate-900 transition-colors duration-300 group-hover:text-orange-600">
                                     {item.title}
                                 </h3>
                                 <p className="text-slate-500 leading-relaxed text-sm group-hover:text-slate-600 transition-colors">
@@ -65,7 +65,7 @@ const WhyChooseUs = () => {
 
                                 {/* LEARN MORE LINK */}
                                 <div className="pt-4 overflow-hidden">
-                                    <a href="#" className="inline-flex items-center gap-2 text-sm font-bold text-green-600 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-green-600 after:transition-all group-hover:after:w-full">
+                                    <a href="#" className="inline-flex items-center gap-2 text-sm font-bold text-orange-600 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-orange-600 after:transition-all group-hover:after:w-full">
                                         Read More 
                                         <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
                                     </a>

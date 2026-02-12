@@ -30,7 +30,6 @@ const SolarLandingPage = () => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
-  // 🔥 Auto Slider
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -143,7 +142,7 @@ const SolarLandingPage = () => {
 
           <h1 className="text-5xl lg:text-7xl font-extrabold leading-tight">
             Power Your Future with Clean Solar Energy <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-green-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-orange-400">
               Up to 100%
             </span>
           </h1>
@@ -155,7 +154,7 @@ const SolarLandingPage = () => {
           <div className="flex flex-wrap gap-6 mt-8">
             {["Zero Maintenance", "25 Years Warranty", "Government Subsidy"].map((text, i) => (
               <div key={i} className="flex items-center gap-2 text-sm font-medium">
-                <CheckCircle className="text-green-400 w-5 h-5" /> {text}
+                <CheckCircle className="text-orange-400 w-5 h-5" /> {text}
               </div>
             ))}
           </div>
@@ -186,7 +185,7 @@ const SolarLandingPage = () => {
 
               <button
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold py-4 rounded-xl shadow-lg transition disabled:opacity-70 mt-4"
+                className="w-full bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white font-bold py-4 rounded-xl shadow-lg transition disabled:opacity-70 mt-4"
               >
                 {loading ? "Processing..." : "Get Started Now"}
               </button>

@@ -59,13 +59,13 @@ export default function Quote() {
 
         {/* --- FORM SECTION --- */}
         <div className="px-8 py-12 lg:px-12 lg:py-16">
-          <div className="mb-2 flex items-center gap-2 text-green-600">
+          <div className="mb-2 flex items-center gap-2 text-orange-600">
             <Calculator size={20} />
             <span className="font-bold uppercase tracking-widest text-xs">Price Calculator</span>
           </div>
 
           <h2 className="text-3xl font-black text-slate-900 md:text-4xl">
-            Check Your <span className="text-green-600">Solar Cost</span>
+            Check Your <span className="text-orange-600">Solar Cost</span>
           </h2>
 
           <p className="mt-4 text-slate-500 leading-relaxed">
@@ -79,7 +79,7 @@ export default function Quote() {
                 type="number"
                 step="0.1"
                 min="0.1"
-                className="w-full h-14 rounded-xl bg-slate-50 px-5 outline-none border border-slate-200 focus:border-green-500 focus:ring-4 focus:ring-green-500/10 transition-all text-slate-800 font-medium"
+                className="w-full h-14 rounded-xl bg-slate-50 px-5 outline-none border border-slate-200 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all text-slate-800 font-medium"
                 placeholder="e.g. 3.0"
                 value={solarSize}
                 onChange={(e) => setSolarSize(e.target.value)}
@@ -90,7 +90,7 @@ export default function Quote() {
             <div className="space-y-1">
               <label className="text-sm font-semibold text-slate-700 ml-1">Installation Type</label>
               <select
-                className="w-full h-14 rounded-xl bg-slate-50 px-5 outline-none border border-slate-200 focus:border-green-500 transition-all appearance-none cursor-pointer text-slate-800 font-medium"
+                className="w-full h-14 rounded-xl bg-slate-50 px-5 outline-none border border-slate-200 focus:border-orange-500 transition-all appearance-none cursor-pointer text-slate-800 font-medium"
                 value={type}
                 onChange={(e) => setType(e.target.value)}
               >
@@ -102,7 +102,7 @@ export default function Quote() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full h-14 rounded-xl bg-slate-900 text-white font-bold hover:bg-green-600 shadow-lg shadow-slate-900/10 transition-all active:scale-[0.98] flex items-center justify-center gap-2"
+              className="w-full h-14 rounded-xl bg-slate-900 text-white font-bold hover:bg-orange-600 shadow-lg shadow-slate-900/10 transition-all active:scale-[0.98] flex items-center justify-center gap-2"
             >
               {loading ? (
                 <div className="h-5 w-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
@@ -121,22 +121,22 @@ export default function Quote() {
 
           {/* --- RESULT CARD WITH ANIMATION --- */}
           {price !== null && (
-            <div className="mt-8 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 border border-green-100 p-6 text-green-900 shadow-inner transform animate-in fade-in zoom-in duration-500">
-              <p className="text-sm font-bold uppercase tracking-wider text-green-600/70">Estimated Investment</p>
-              <div className="text-4xl font-black text-green-800 mt-1">
+            <div className="mt-8 rounded-2xl bg-gradient-to-br from-orange-50 to-emerald-50 border border-orange-100 p-6 text-orange-900 shadow-inner transform animate-in fade-in zoom-in duration-500">
+              <p className="text-sm font-bold uppercase tracking-wider text-orange-600/70">Estimated Investment</p>
+              <div className="text-4xl font-black text-orange-800 mt-1">
                 ₹ {price.toLocaleString()}
               </div>
 
-              <div className="mt-4 grid grid-cols-2 gap-4 border-t border-green-200/50 pt-4">
+              <div className="mt-4 grid grid-cols-2 gap-4 border-t border-orange-200/50 pt-4">
                 {perKw && (
                   <div>
-                    <p className="text-[10px] uppercase font-bold text-green-600/60">Rate per KW</p>
+                    <p className="text-[10px] uppercase font-bold text-orange-600/60">Rate per KW</p>
                     <p className="text-sm font-bold">₹ {perKw.toLocaleString()}</p>
                   </div>
                 )}
                 {slab && (
                   <div>
-                    <p className="text-[10px] uppercase font-bold text-green-600/60">System Slab</p>
+                    <p className="text-[10px] uppercase font-bold text-orange-600/60">System Slab</p>
                     <p className="text-sm font-bold">{slab}</p>
                   </div>
                 )}

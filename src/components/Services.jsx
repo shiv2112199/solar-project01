@@ -46,12 +46,12 @@ export default function Services() {
         
         {/* HEADER SECTION */}
         <div className="mx-auto mb-16 max-w-3xl text-center">
-          <div className="inline-block rounded-full bg-green-100 px-4 py-1.5 text-sm font-bold text-green-600 mb-4">
+          <div className="inline-block rounded-full bg-orange-100 px-4 py-1.5 text-sm font-bold text-orange-600 mb-4">
             WHAT WE OFFER
           </div>
           <h2 className="text-4xl font-black text-slate-900 md:text-5xl leading-tight">
             Pioneers In The World Of <br />
-            <span className="text-green-600">Renewable Energy</span>
+            <span className="text-orange-600">Renewable Energy</span>
           </h2>
         </div>
 
@@ -60,7 +60,7 @@ export default function Services() {
           {services.map((s, idx) => (
             <div 
               key={idx} 
-              className="group relative flex flex-col overflow-hidden rounded-3xl bg-white shadow-xl shadow-slate-200/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-green-200/40"
+              className="group relative flex flex-col overflow-hidden rounded-3xl bg-white shadow-xl shadow-slate-200/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-200/40"
             >
               {/* IMAGE WITH ZOOM HOVER */}
               <div className="relative h-60 w-full overflow-hidden">
@@ -74,11 +74,11 @@ export default function Services() {
 
               {/* ICON SECTION (Floating & Hover Animated) */}
               <div className="relative px-8 pb-10">
-                <div className="relative -mt-10 mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-white text-green-600 shadow-xl transition-all duration-500 group-hover:bg-green-600 group-hover:text-white group-hover:rotate-[360deg]">
+                <div className="relative -mt-10 mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-white text-orange-600 shadow-xl transition-all duration-500 group-hover:bg-orange-600 group-hover:text-white group-hover:rotate-[360deg]">
                   {s.icon}
                 </div>
 
-                <h3 className="text-2xl font-bold text-slate-900 transition-colors group-hover:text-green-600">
+                <h3 className="text-2xl font-bold text-slate-900 transition-colors group-hover:text-orange-600">
                   {s.title}
                 </h3>
 
@@ -87,7 +87,7 @@ export default function Services() {
                 </p>
 
                 {/* LEARN MORE HOVER LINK */}
-                <div className="mt-6 flex items-center gap-2 text-sm font-bold text-green-600 opacity-0 transition-all duration-500 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0">
+                <div className="mt-6 flex items-center gap-2 text-sm font-bold text-orange-600 opacity-0 transition-all duration-500 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0">
                   Learn More <ArrowRightUp size={16} />
                 </div>
               </div>

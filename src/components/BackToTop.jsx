@@ -6,7 +6,7 @@ export default function BackToTop({ show }) {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className="fixed bottom-10 right-10 z-40 grid h-12 w-12 place-items-center rounded-full bg-green-400 text-white shadow-lg hover:opacity-90"
+      className="fixed bottom-10 right-10 z-40 grid h-12 w-12 place-items-center rounded-full bg-orange-400 text-white shadow-lg hover:opacity-90"
     >
       <FaArrowUpLong />
     </button>
