@@ -12,6 +12,8 @@ import {
   Hash,
   ReceiptText,
   CheckCircle,
+  ReceiptSwissFrancIcon,
+  ReceiptRussianRuble,
 } from "lucide-react";
 
 const slides = [solar1, solar2, solar3];
@@ -27,7 +29,7 @@ const HeroCarousel = () => {
     pin_code: "",
     monthly_electricity_bill: "",
     system_size: "",
-    installtion_type: ""
+    installation_type: ""
   });
 
   const [errors, setErrors] = useState({});
@@ -41,6 +43,10 @@ const HeroCarousel = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(()=>{
+    getUser()
+  },[])
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -91,6 +97,16 @@ const HeroCarousel = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+  const getUser = async(id)=>{
+    const res = await fetch(`https://script.google.com/macros/s/AKfycbz0mO-2pGU_1hfFCaCZMiCyfqZMBcFioSSTyKdRchxMtA5-c1xo7VXSEu0OkbUwrJw0/exec?${1}`,{
+      method: "GET",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      // body: JSON.stringify()
+    })
+    console.log(res)
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
@@ -98,13 +114,13 @@ const HeroCarousel = () => {
     setLoading(true);
     try {
       // await api.post("/enquiry", formData);
-      const res = await fetch("https://script.google.com/macros/s/AKfycbyn6UEUaRIE7p4FyfO6QZ3crdjdHgxRCuf9URcQWJZNU1-3RbljdDkWeBfh7B59nnFQ/exec", {
+      const res = await fetch("https://script.google.com/macros/s/AKfycbyq5xkunNhb3n5Grm7GCly2W3NBd703paUuo8RdN4Xrx-TjSrGXxLRyU8sIDAMepfF3/exec", {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
       });
-
+      console.log(res)
       setServerMessage({ type: "success", text: "Success! Our expert will call you soon." });
 
       setFormData({
@@ -115,7 +131,7 @@ const HeroCarousel = () => {
         pin_code: "",
         monthly_electricity_bill: "",
         system_size: "",
-        installtion_type: ""
+        installation_type: ""
       });
     } catch (err) {
       console.log(err)
@@ -179,7 +195,7 @@ const HeroCarousel = () => {
         {/* RIGHT FORM */}
         <div className="w-full lg:w-2.5/5">
           <div className="bg-white text-slate-900 rounded-2xl p-8 shadow-2xl">
-            <h3 className="text-2xl font-bold mb-2">Get Free Quote</h3>
+            <h3 className="text-2xl font-bold mb-2">Get Quote</h3>
             <p className="text-gray-500 mb-6 text-sm">
               Fill in the details for a free solar site audit.
             </p>
@@ -200,7 +216,7 @@ const HeroCarousel = () => {
               <InputGroup icon={<ReceiptText size={18} />} name="monthly_electricity_bill" type="number" placeholder="Avg Monthly Bill (₹)" value={formData.monthly_electricity_bill} onChange={handleChange} error={errors.monthly_electricity_bill} />
 
               <div className="space-y-1">
-                {/* <label className="text-sm font-semibold text-slate-700 ml-1">System Size (KW)</label> */}
+                <label className="text-sm font-semibold text-slate-700 ml-1">System Size (KW)</label>
                 <input
                   type="number"
                   name="system_size"
@@ -208,23 +224,23 @@ const HeroCarousel = () => {
                   min="0.1"
                   className="w-full h-11 rounded-xl bg-slate-50 px-5 outline-none border border-slate-200 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all text-slate-800 font-medium"
                   placeholder="System Size (KW)"
-                  // value={solarSize}
+                  value={formData.system_size}
                   onChange={handleChange}
                   required
                 />
               </div>
 
               <div className="space-y-1">
-                {/* <label className="text-sm font-semibold text-slate-700 ml-1">Installation Type</label> */}
+                <label className="text-sm font-semibold text-slate-700 ml-1">Installation Type</label>
                 <select
                   className="w-full h-11 rounded-xl bg-slate-50 px-5 outline-none border border-slate-200 focus:border-orange-500 transition-all appearance-none cursor-pointer text-slate-800 font-medium"
-                  // value={type}
+                  name="installation_type"
+                  value={formData.installation_type}
                   onChange={handleChange}
-                  name="installtion_type"
                 >
-                  <option value="with" selected disabled>Installation Type</option>
+                  <option value="" disabled >Installation Type</option>
                   <option value="with">Full Project (With Material)</option>
-                  <option value="without">Installation Only (Labour)</option>
+                  <option value="without">Installation Only (Labour)</option> 
                 </select>
               </div>
 
