@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../services/api";
+import axios from "axios";
 import solar1 from "../assets/images/about/about.jpg";
 import solar2 from "../assets/images/carousel/hero-1.png";
 import solar3 from "../assets/images/carousel/hero-2.jpg";
@@ -15,7 +16,7 @@ import {
 
 const slides = [solar1, solar2, solar3];
 
-const SolarLandingPage = () => {
+const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const [formData, setFormData] = useState({
@@ -25,10 +26,13 @@ const SolarLandingPage = () => {
     city: "",
     pin_code: "",
     monthly_electricity_bill: "",
+    system_size: "",
+    installtion_type: ""
   });
 
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [serverMessage, setServerMessage] = useState(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -59,6 +63,7 @@ const SolarLandingPage = () => {
 
     setFormData({ ...formData, [name]: value });
     setErrors({ ...errors, [name]: "" });
+    setServerMessage(null);
   };
 
   const validate = () => {
@@ -92,8 +97,16 @@ const SolarLandingPage = () => {
 
     setLoading(true);
     try {
-      await api.post("/enquiry", formData);
-      alert("Success! Our expert will call you soon.");
+      // await api.post("/enquiry", formData);
+      const res = await fetch("https://script.google.com/macros/s/AKfycbyn6UEUaRIE7p4FyfO6QZ3crdjdHgxRCuf9URcQWJZNU1-3RbljdDkWeBfh7B59nnFQ/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      setServerMessage({ type: "success", text: "Success! Our expert will call you soon." });
+
       setFormData({
         name: "",
         email: "",
@@ -101,9 +114,13 @@ const SolarLandingPage = () => {
         city: "",
         pin_code: "",
         monthly_electricity_bill: "",
+        system_size: "",
+        installtion_type: ""
       });
     } catch (err) {
-      alert(err.response?.data?.message || "Something went wrong.");
+      console.log(err)
+      const message = err.response?.data?.message || err.message || "Something went wrong.";
+      setServerMessage({ type: "error", text: message });
     } finally {
       setLoading(false);
     }
@@ -116,9 +133,8 @@ const SolarLandingPage = () => {
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
         >
           <img
             src={slide}
@@ -183,6 +199,35 @@ const SolarLandingPage = () => {
 
               <InputGroup icon={<ReceiptText size={18} />} name="monthly_electricity_bill" type="number" placeholder="Avg Monthly Bill (₹)" value={formData.monthly_electricity_bill} onChange={handleChange} error={errors.monthly_electricity_bill} />
 
+              <div className="space-y-1">
+                {/* <label className="text-sm font-semibold text-slate-700 ml-1">System Size (KW)</label> */}
+                <input
+                  type="number"
+                  name="system_size"
+                  step="0.1"
+                  min="0.1"
+                  className="w-full h-11 rounded-xl bg-slate-50 px-5 outline-none border border-slate-200 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all text-slate-800 font-medium"
+                  placeholder="System Size (KW)"
+                  // value={solarSize}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className="space-y-1">
+                {/* <label className="text-sm font-semibold text-slate-700 ml-1">Installation Type</label> */}
+                <select
+                  className="w-full h-11 rounded-xl bg-slate-50 px-5 outline-none border border-slate-200 focus:border-orange-500 transition-all appearance-none cursor-pointer text-slate-800 font-medium"
+                  // value={type}
+                  onChange={handleChange}
+                  name="installtion_type"
+                >
+                  <option value="with" selected disabled>Installation Type</option>
+                  <option value="with">Full Project (With Material)</option>
+                  <option value="without">Installation Only (Labour)</option>
+                </select>
+              </div>
+
               <button
                 disabled={loading}
                 className="w-full bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white font-bold py-4 rounded-xl shadow-lg transition disabled:opacity-70 mt-4"
@@ -190,9 +235,12 @@ const SolarLandingPage = () => {
                 {loading ? "Processing..." : "Get Started Now"}
               </button>
 
-              <p className="text-center text-[10px] text-gray-400 mt-4 uppercase tracking-widest">
-                Your data is safe with us
-              </p>
+              {serverMessage && (
+                <p className={`text-center text-sm mt-3 font-medium ${serverMessage.type === "success" ? "text-green-600" : "text-red-500"}`}>
+                  {serverMessage.text}
+                </p>
+              )}
+
             </form>
           </div>
         </div>
@@ -204,9 +252,8 @@ const SolarLandingPage = () => {
           <div
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full cursor-pointer transition ${
-              currentSlide === index ? "bg-cyan-400 scale-110" : "bg-white/50"
-            }`}
+            className={`w-3 h-3 rounded-full cursor-pointer transition ${currentSlide === index ? "bg-cyan-400 scale-110" : "bg-white/50"
+              }`}
           ></div>
         ))}
       </div>
@@ -224,4 +271,4 @@ const InputGroup = ({ icon, error, ...props }) => (
   </div>
 );
 
-export default SolarLandingPage;
+export default HeroCarousel;
